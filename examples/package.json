@@ -4,7 +4,8 @@
   "description": "MongoDB Fundamentals Week 1 Assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon insert_books.js",
+  "start": "node insert_books.js"
   },
   "keywords": [
     "mongodb",

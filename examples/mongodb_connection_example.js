@@ -1,11 +1,12 @@
 // Basic MongoDB Connection Example
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-// Connection URI - replace with your MongoDB connection string if using Atlas
-const uri = 'mongodb://localhost:27017';
+// Connection URI from environment variables
+const uri = process.env.MONGODB_URI;
 
-// Database Name
-const dbName = 'bookstore';
+// Database Name from environment variables
+const dbName = process.env.DB_NAME;
 
 // Create a new MongoClient
 const client = new MongoClient(uri);

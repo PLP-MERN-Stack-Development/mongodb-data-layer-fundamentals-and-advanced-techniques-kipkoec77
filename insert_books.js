@@ -3,8 +3,8 @@
 // Import MongoDB client
 const { MongoClient } = require('mongodb');
 
-// Connection URI (replace with your MongoDB connection string if using Atlas)
-const uri = 'mongodb://localhost:27017';
+// Connection URI for MongoDB Atlas
+const uri = 'mongodb+srv://brian:21785528@cluster0.j8xhz4z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Database and collection names
 const dbName = 'plp_bookstore';
