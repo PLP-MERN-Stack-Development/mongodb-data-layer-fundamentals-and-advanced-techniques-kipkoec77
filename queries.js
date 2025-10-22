@@ -2,13 +2,26 @@
 // This file contains all the required MongoDB operations for the PLP Bookstore assignment
 
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
-// Connection URI for MongoDB Atlas
-const uri = 'mongodb+srv://brian:21785528@cluster0.j8xhz4z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// Connection URI from environment variables
+const uri = process.env.MONGODB_URI;
 
-// Database and collection names
-const dbName = 'plp_bookstore';
-const collectionName = 'books';
+// Debug: Check if environment variables are loaded
+console.log('Environment check:');
+console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
+console.log('DB_NAME:', process.env.DB_NAME || 'plp_bookstore');
+
+// Validate connection string
+if (!uri) {
+  console.error(' Error: MONGODB_URI not found in environment variables');
+  console.error('Please make sure you have a .env file with MONGODB_URI defined');
+  process.exit(1);
+}
+
+// Database and collection names from environment variables
+const dbName = process.env.DB_NAME || 'plp_bookstore';
+const collectionName = process.env.COLLECTION_NAME || 'books';
 
 // Create MongoDB client
 const client = new MongoClient(uri);
